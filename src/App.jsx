@@ -4,9 +4,11 @@ import Footer from './Componentes/Footer.jsx'
 import Header from './Componentes/Header.jsx'
 import Layout from './Componentes/Layout.jsx'
 import ScrollToTop from './Componentes/ScrollToTop.jsx'
-import Inicio from './Inicio.jsx'
-import ListarProductos from './listaDeProductos.jsx'
-import WorkInProgress from './WorkInProgress.jsx'
+import Inicio from "./Pages/Inicio.jsx"
+import ListarProductos from "./Pages/listaDeProductos.jsx"
+import WorkInProgress from "./Pages/WorkInProgress.jsx"
+import FormularioControlado from "./Componentes/FormularioControlado.jsx"
+import Administracion from "./Pages/Administracion.jsx"
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path="/quienes" element={<WorkInProgress />} />
         <Route path="/redes" element={<WorkInProgress />} />
         <Route path="/ubicacion" element={<WorkInProgress />} />
+        <Route path="/administracion" element={<Administracion/>} />
+        <Route path="/formularioControlado" element={<FormularioControlado/>} />
         
         </Routes>
       </Layout>

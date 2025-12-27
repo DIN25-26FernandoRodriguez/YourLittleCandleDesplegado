@@ -1,8 +1,8 @@
-import productos from "./data/productos.js"
-import Card from './Componentes/Card.jsx'
-import Layout from "./Componentes/Layout.jsx"
+import productos from "../data/productos.js"
+import Card from '../Componentes/Card.jsx'
+import Layout from "../Componentes/Layout.jsx"
 import { useState } from "react";
-import SearchBar from "./Componentes/SearchBar.jsx";
+import SearchBar from "../Componentes/SearchBar.jsx";
 import { useMemo } from "react";
 
 // Componente para listar todos los productos
@@ -25,9 +25,10 @@ function ListarProductos() {
     <>
     {/* Usamos el componente Layout para envolver el contenido principal */}
       <Layout>
-        <h1 className="text-4xl text-[#674835] font-bold">- Velas aromáticas -</h1>
+        <h1 className=" pb-10 text-4xl text-[#674835] font-bold">- Velas aromáticas -</h1>
 
-        <SearchBar
+
+        <SearchBar 
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
         placeholder="Buscar producto por nombre.." />

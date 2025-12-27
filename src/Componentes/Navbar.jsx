@@ -18,6 +18,7 @@ function Navbar() {
       <Link to="/listaDeProductos">Nuestras velas</Link>
       <Link to="/quienes">Quienes somos</Link>
       <Link to="/contacto">Contacto</Link>
+      <Link to="/administracion">Administracion</Link>
     </nav>
 
     {/* Configuración para esconder el boton hamburguesa en pantallas medianas y grandes*/}
@@ -33,6 +34,7 @@ function Navbar() {
                 <NavLink to="/listaDeProductos"  className="hover:underline" onClick={() => setOpen(false)}>Nuestras velas</NavLink>
                 <NavLink to="/quienes"  className="hover:underline" onClick={() => setOpen(false)}>Quienes somos</NavLink>
                 <NavLink to="/contacto"  className="hover:underline" onClick={() => setOpen(false)}>Contacto</NavLink>
+                <NavLink to="/administracion"  className="hover:underline" onClick={() => setOpen(false)}>Administracion</NavLink>
             </nav>
     </header>
 
