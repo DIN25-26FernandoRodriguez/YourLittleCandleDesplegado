@@ -1,29 +1,49 @@
----
-title: DetalleProducto
-sidebar_position: 1
----
+import DetalleProducto from '@site/src/components/DetalleProducto';
+import productos from '@site/src/components/productos';
 
-import { MemoryRouter, Routes, Route } from 'react-router-dom';
-import DetalleProducto from './DetalleProducto';
+# Detalle de Producto
 
-# DetalleProducto
-
-El componente **DetalleProducto** es una vista encargada de mostrar toda la información detallada de un producto seleccionado por el usuario.  
-Se utiliza cuando desde un listado de productos se necesita acceder a una vista con información ampliada.
+Este componente muestra la información completa de un producto seleccionado.
+Se utiliza cuando el usuario quiere ver los detalles de un artículo concreto.
 
 ---
 
-## 🎯 Función del Componente
+## 📌 ¿Qué hace este componente?
 
-- Mostrar los detalles completos de un producto.
-- Obtener el producto dinámicamente a través del **ID de la URL**.
-- Controlar el caso en el que el producto no exista.
-- Permitir volver al listado de productos.
-- Servir como base para la funcionalidad de carrito de compra.
+El componente DetalleProducto nos ofrece una información más específica del proyecto que el usuario ha seleccionado de la lista.
+Mostrando la imagen en un tamaño mayor y desglosando y mostrando todas las especificaciones que no se mostraban antes en la lista de 
+productos.
+
+Aqui se detalla toda la información que aporta al usuario: 
+
+- Muestra el nombre del producto
+- Imagen
+- Precio
+- Descripción
+- Botón para agregar al carrito
 
 ---
 
-## 📌 Ubicación
+## 🧩 Props del componente
 
-```bash
-src/components/DetalleProducto.jsx
+| Propiedad | Tipo | Descripción |
+|---------|------|-------------|
+| product | Object | Producto que se va a mostrar |
+
+---
+
+## 🎯 Ejemplo 1: Producto válido
+
+<DetalleProducto product={productos[0]} />
+
+---
+
+## 🎯 Ejemplo 2: Otro producto
+
+<DetalleProducto product={productos[1]} />
+
+---
+
+## ❌ Ejemplo 3: Producto inexistente
+
+<DetalleProducto product={null} />
