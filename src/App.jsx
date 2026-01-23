@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import DetalleProducto from './Componentes/DetalleProducto.jsx'
+import DetalleProducto from "./Pages/DetalleProducto.jsx"
 import Footer from './Componentes/Footer.jsx'
 import Header from './Componentes/Header.jsx'
 import Layout from './Componentes/Layout.jsx'

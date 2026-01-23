@@ -35,18 +35,6 @@ function ListarProductos() {
 
         <div className="flex justify-center items-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            {/* Mapeamos el array de productos para crear una Card por cada producto */}
-            {/* {productos.map((producto) => (
-              <Card
-                key={producto.id}
-                name={producto.name}
-                image={producto.image}
-                price={producto.price}
-                to={`/producto/${producto.id}`}
-              >
-                {producto.description}
-              </Card>
-            ))} */}
             {todosLosProductos.length > 0 ? (
           todosLosProductos.map((producto) => (
             <Card
@@ -61,7 +49,7 @@ function ListarProductos() {
           ))
         ) : (
         // Mensaje si no hay resultados
-        <p className="col-span-full text-center text-gray-500 p-4"> No se encontraron películas con el término `{searchTerm}`. </p>
+        <p className="col-span-full text-center text-gray-500 p-4"> No se encontraron productos con el término `{searchTerm}`. </p>
         )}
           </div>
         </div>

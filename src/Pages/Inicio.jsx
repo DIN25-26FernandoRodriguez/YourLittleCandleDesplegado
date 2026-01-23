@@ -12,7 +12,7 @@ function Inicio() {
 
       {/* Contenido superpuesto en el centro de la imagen */}
       <div className="absolute top-1/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-black">
-        <h1 className="text-4xl font-bold">Bienvenido a la página de inicio</h1>
+        <h1 className="text-4xl font-bold">Bienvenido a YourLittleCandle</h1>
         <p className="mt-4 text-lg">Explora nuestros productos.</p>
       </div>
     </div>
