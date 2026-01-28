@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useCreateProduct } from "../hooks/useCreateProduct";
 
 
 /**
@@ -19,6 +20,8 @@ const formularioInicial = {
     imagen: ""
 }
 
+
+
 function FormularioControlado(){
     const [formData, setFormData] = useState(formularioInicial)
     const [error, setError] = useState({
@@ -28,6 +31,8 @@ function FormularioControlado(){
         precio: "",
         imagen: ""
     })
+
+    const { addProduct, loading, error: apiError } = useCreateProduct();
 
     const handleChange = (e) => {
         const {id, value} = e.target;
@@ -50,20 +55,23 @@ function FormularioControlado(){
 
         if(Object.keys(newErrors).length === 0){
             alert("Formulario válido. Producto añadido")
+            addProduct(formData)
             setFormData(formularioInicial)
-        }
+        } 
     }
 
     return (
+        
         <div className="flex justify-center items-center min-h-screen bg-[var(--color-secondary)] p-4">
             <form
                 onSubmit={handleSubmit}
                 className="bg-white border p-6 rounded-lg shadow-md w-full max-w-md"
                 noValidate
             >
-                <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">
+                <h1 className="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">
                     Añadir nuevo producto
-                </h2>
+                </h1>
+                <p>{apiError}</p>
 
                 <div className="mb-4">
                     <label htmlFor="nombre" className="block text-gray-700 font-semibold mb-2">

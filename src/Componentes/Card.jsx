@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { deleteProduct } from "../services/productosService";
 
 /**
  * Componente Card
@@ -12,6 +13,7 @@ import { Link } from "react-router-dom";
  */
 
 function Card({image, name, price, to, children}){
+
 
 return(
     <Link to={to} aria-label={`Abrir detalle de ${name}`} className="bg-[var(--color-secondary)]

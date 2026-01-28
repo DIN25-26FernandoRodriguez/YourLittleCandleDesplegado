@@ -1,13 +1,15 @@
-import productos from "../data/productos.js"
+// import productos from "../data/productos.js"
 import Card from '../Componentes/Card.jsx'
 import Layout from "../Componentes/Layout.jsx"
 import { useState } from "react";
 import SearchBar from "../Componentes/SearchBar.jsx";
 import { useMemo } from "react";
+import { useProductos } from "../hooks/useGetAllProducts.js";
 
 // Componente para listar todos los productos
 function ListarProductos() {
   const [searchTerm, setSearchTerm] = useState(""); // Declaro el estádo que se va a guardar
+  const {data: productos = [], loading, error } = useProductos();
 
     const todosLosProductos = useMemo(() => {
     if (!searchTerm) {
@@ -19,7 +21,7 @@ function ListarProductos() {
       // Filtra por el nombre de la película
       producto.name.toLowerCase().includes(lowerCaseSearchTerm)
     );
-  }, [searchTerm]);
+  }, [searchTerm, productos]);
 
   return (
     <>
@@ -39,12 +41,12 @@ function ListarProductos() {
           todosLosProductos.map((producto) => (
             <Card
                 key={producto.id}
-                name={producto.name}
-                image={producto.image}
-                price={producto.price}
+                name={producto.nombre}
+                image={producto.imagen}
+                price={producto.precio}
                 to={`/producto/${producto.id}`}
               >
-                {producto.description}
+                {producto.descripcion}
               </Card>
           ))
         ) : (
