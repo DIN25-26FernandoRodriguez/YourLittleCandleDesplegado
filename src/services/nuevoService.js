@@ -63,3 +63,5 @@ export const deleteProduct = async (id) => {
         throw new Error(error.response?.data?.message ||"1hu23iu1i23")
     }
 }
+
+

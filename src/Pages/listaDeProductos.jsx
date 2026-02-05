@@ -20,7 +20,7 @@ function ListarProductos() {
     return productos.filter((producto) =>
       // Filtra por el nombre de la película
       producto.name.toLowerCase().includes(lowerCaseSearchTerm)
-    );
+    )
   }, [searchTerm, productos]);
 
   return (
@@ -35,8 +35,8 @@ function ListarProductos() {
         onSearchChange={setSearchTerm}
         placeholder="Buscar producto por nombre.." />
 
-        <div className="flex justify-center items-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        <div className="flex items-center justify-center">
+          <div className="grid grid-cols-1 gap-6 text-center sm:grid-cols-2 lg:grid-cols-4">
             {todosLosProductos.length > 0 ? (
           todosLosProductos.map((producto) => (
             <Card
@@ -51,7 +51,7 @@ function ListarProductos() {
           ))
         ) : (
         // Mensaje si no hay resultados
-        <p className="col-span-full text-center text-gray-500 p-4"> No se encontraron productos con el término `{searchTerm}`. </p>
+        <p className="p-4 text-center text-gray-500 col-span-full"> No se encontraron productos con el término `{searchTerm}`. </p>
         )}
           </div>
         </div>
