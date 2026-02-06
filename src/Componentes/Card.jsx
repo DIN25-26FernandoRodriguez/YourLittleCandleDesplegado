@@ -21,15 +21,15 @@ return(
     duration-300 w-70 p-5 rounded-2xl border-2 border-black">
         <article className="flex flex-col items-start gap-3 p-4 rounded-lg">
 
-            <figure className="w-full rounded-lg bg-gray-100 overflow-hidden">
-                <img className="w-full object-contain rounded-2xl" src={image} alt={name} />
+            <figure className="w-full overflow-hidden bg-gray-100 rounded-lg">
+                <img className="object-contain w-full rounded-2xl" src={image} alt={name} />
                 <figcaption className="sr-only">
                     Imagen del producto {name}
                 </figcaption>
             </figure>
             <div>
-                <h2 className="text-xl font-semibold text-gray-800 mb-2 pt-3">{name}</h2>
-                <p><strong>{price}</strong></p>
+                <h2 className="pt-3 mb-2 text-xl font-semibold text-gray-800">{name}</h2>
+                <p><strong>{price} €</strong></p>
                 <p>{children}</p>
             </div>
         </article>
