@@ -1,6 +1,6 @@
 import axios from 'axios';
-const API_URL = import.meta.env.VITE_API_URL + '/productos';
-// const API_URL = 'https://api-productos-mongodb-oh06.onrender.com/productos'
+// const API_URL = import.meta.env.VITE_API_URL + '/productos';
+const API_URL = 'https://api-productos-mongodb-oh06.onrender.com/productos'
 
 const mapProductoFromAPI = (producto) => ({
     id: producto._id,
