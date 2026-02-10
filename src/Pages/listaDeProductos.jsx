@@ -5,11 +5,15 @@ import { useState } from "react";
 import SearchBar from "../Componentes/SearchBar.jsx";
 import { useMemo } from "react";
 import { useProductos } from "../hooks/useGetAllProducts.js";
+import useVoiceRecognition from "../hooks/useVoiceRecognition";
+import { Mic } from "lucide-react"; // npm install lucide-react
 
 // Componente para listar todos los productos
 function ListarProductos() {
   const [searchTerm, setSearchTerm] = useState(""); // Declaro el estádo que se va a guardar
   const {data: productos = [], loading, error } = useProductos();
+
+   const voice = useVoiceRecognition((text) => setSearchTerm(text));
 
     const todosLosProductos = useMemo(() => {
     if (!searchTerm) {
@@ -19,9 +23,12 @@ function ListarProductos() {
     const lowerCaseSearchTerm = searchTerm.toLowerCase();
     return productos.filter((producto) =>
       // Filtra por el nombre de la película
-      producto.name.toLowerCase().includes(lowerCaseSearchTerm)
+      producto.nombre.toLowerCase().includes(lowerCaseSearchTerm)
     )
   }, [searchTerm, productos]);
+
+    // Detectamos si es móvil
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
   return (
     <>
@@ -29,11 +36,28 @@ function ListarProductos() {
       <Layout>
         <h1 className=" pb-10 text-4xl text-[#674835] font-bold">- Velas aromáticas -</h1>
 
-
         <SearchBar 
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
-        placeholder="Buscar producto por nombre.." />
+        placeholder="Buscar producto por nombre.."
+        className={!isMobile ? "pr-12" : ""}
+        />
+
+        {!isMobile && voice.isSupported && (
+          <button
+            onClick={voice.startListening}
+            className={`absolute top-[53%] ml-56 -translate-y-1/2 transition
+              ${voice.isListening
+                ? "text-red-500 animate-pulse"
+                : "text-gray-400 hover:text-blue-600"
+              }`}
+            title="Buscar por voz"
+          >
+            <Mic size={20} />
+          </button>
+        )}
+
+        
 
         <div className="flex items-center justify-center">
           <div className="grid grid-cols-1 gap-6 text-center sm:grid-cols-2 lg:grid-cols-4">
