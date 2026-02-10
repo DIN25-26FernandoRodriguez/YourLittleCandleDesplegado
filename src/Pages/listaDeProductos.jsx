@@ -30,13 +30,39 @@ function ListarProductos() {
     // Detectamos si es móvil
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
+  const [touchStartX, setTouchStartX] = useState(null);
+
+  const handleTouchStart = (e) => {
+  setTouchStartX(e.touches[0].clientX);
+};
+
+const handleTouchEnd = (e) => {
+  if (touchStartX === null) return;
+
+  const touchEndX = e.changedTouches[0].clientX;
+  const diff = touchEndX - touchStartX;
+
+  // Swipe hacia la derecha (ajustable)
+  if (diff > 80 && voice.isSupported) {
+    voice.startListening();
+  }
+
+  setTouchStartX(null);
+};
+
   return (
     <>
     {/* Usamos el componente Layout para envolver el contenido principal */}
       <Layout>
         <h1 className=" pb-10 text-4xl text-[#674835] font-bold">- Velas aromáticas -</h1>
 
-        <SearchBar 
+
+
+        <div
+        onTouchStart={isMobile ? handleTouchStart : undefined}
+  onTouchEnd={isMobile ? handleTouchEnd : undefined}
+        >
+          <SearchBar 
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
         placeholder="Buscar producto por nombre.."
@@ -56,6 +82,7 @@ function ListarProductos() {
             <Mic size={20} />
           </button>
         )}
+        </div>
 
         
 
